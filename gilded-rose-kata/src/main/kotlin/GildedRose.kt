@@ -1,61 +1,11 @@
-class GildedRose(
-        val items: List<Item>) {
+class GildedRose(val items: List<Item>) {
 
+    fun updateQuality() = items.forEach { item ->
+        val updateQualityIn = ItemUpdateFactory.createQualityUpdateFor(item.name)
+        val updateSellInValueIn = ItemUpdateFactory.createSellInUpdateFor(item.name)
 
-    fun updateQuality() {
-        for (i in 0..items.size-1) {
-            if (items[i].name != "Aged Brie" && items[i].name != "Backstage passes to a TAFKAL80ETC concert") {
-                if (items[i].quality > 0) {
-                    if (items[i].name != "Sulfuras, Hand of Ragnaros") {
-                        items[i].quality = items[i].quality - 1
-                    }
-                }
-            }
-            else {
-                if (items[i].quality < 50) {
-                    items[i].quality = items[i].quality + 1
-
-                    if (items[i].name == "Backstage passes to a TAFKAL80ETC concert") {
-                        if (items[i].sellIn < 11) {
-                            if (items[i].quality < 50) {
-                                items[i].quality = items[i].quality + 1
-                            }
-                        }
-
-                        if (items[i].sellIn < 6) {
-                            if (items[i].quality < 50) {
-                                items[i].quality = items[i].quality + 1
-                            }
-                        }
-                    }
-                }
-            }
-
-            if (items[i].name != "Sulfuras, Hand of Ragnaros") {
-                items[i].sellIn = items[i].sellIn - 1
-            }
-
-            if (items[i].sellIn < 0) {
-                if (items[i].name != "Aged Brie") {
-                    if (items[i].name != "Backstage passes to a TAFKAL80ETC concert") {
-                        if (items[i].quality > 0) {
-                            if (items[i].name != "Sulfuras, Hand of Ragnaros") {
-                                items[i].quality = items[i].quality - 1
-                            }
-                        }
-                    }
-                    else {
-                        items[i].quality = items[i].quality - items[i].quality
-                    }
-                }
-                else {
-                    if (items[i].quality < 50) {
-                        items[i].quality = items[i].quality + 1
-                    }
-                }
-            }
-        }
-
+        updateQualityIn(item)
+        updateSellInValueIn(item)
     }
 
 }

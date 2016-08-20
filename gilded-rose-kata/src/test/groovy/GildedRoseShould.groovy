@@ -60,20 +60,14 @@ class GildedRoseShould extends Specification {
 
         where:
             daysLeftForExpiration || newQuality
+            51                    || 2
             11                    || 2
+            10                    || 3
             6                     || 3
+            5                     || 4
             1                     || 4
-    }
-
-    def "set the quality of an expired backstage pass to zero"() {
-        given:
-            Item backstagePass = new Item(BACKSTAGE_PASS, EXPIRED_PRODUCT, 2)
-
-        when:
-            new GildedRose([backstagePass]).updateQuality()
-
-        then:
-            backstagePass.quality == 0
+            0                     || 0
+           -1                     || 0
     }
 
 
