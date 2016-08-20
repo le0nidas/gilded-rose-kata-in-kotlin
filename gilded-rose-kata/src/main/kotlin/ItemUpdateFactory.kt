@@ -1,9 +1,15 @@
+import ItemNames.AGED_BRIE
+import ItemNames.BACKSTAGE_PASS
+import ItemNames.CONJURED
+import ItemNames.SULFURAS
+
 internal object ItemUpdateFactory {
 
     fun createQualityUpdateFor(name: String): (Item) -> Unit = when {
         SULFURAS.equals(name) -> { item -> noOpFor(item) }
         AGED_BRIE.equals(name) -> { item -> increaseAgedBrieQualityByExpirationDays(item) }
         BACKSTAGE_PASS.equals(name) -> { item -> increaseBackstagePassQualityByExpirationDays(item) }
+        CONJURED.equals(name) -> { item -> decreaseConjuredItemQualityByExpiratonDays(item) }
         else -> { item -> decreaseItemQualityByExpirationDays(item) }
     }
 
@@ -11,10 +17,6 @@ internal object ItemUpdateFactory {
         SULFURAS.equals(name) -> { item -> noOpFor(item) }
         else -> { item -> decreaseSellInByOneIn(item) }
     }
-
-    private val SULFURAS = "Sulfuras, Hand of Ragnaros"
-    private val AGED_BRIE = "Aged Brie"
-    private val BACKSTAGE_PASS = "Backstage passes to a TAFKAL80ETC concert"
 
 }
 
@@ -31,6 +33,13 @@ private fun decreaseItemQualityByExpirationDays(item: Item) {
     if (item.quality == 0) return
 
     val decrement = if (item.sellIn > 0) 1 else 2
+    item.quality -= decrement
+}
+
+private fun decreaseConjuredItemQualityByExpiratonDays(item: Item) {
+    if (item.quality == 0) return
+
+    val decrement = if (item.sellIn > 0) 2 else 4
     item.quality -= decrement
 }
 
