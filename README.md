@@ -53,7 +53,7 @@ The *practise_kata_n* branches will have my implementations for every time i pra
 
 MIT
 
-## Suggested attribution
+## Αttribution
 
 This work is by [@TerryHughes](https://twitter.com/TerryHughes), [@NotMyself](https://twitter.com/NotMyself)
 
