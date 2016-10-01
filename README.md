@@ -47,13 +47,13 @@ Quality is 80 and it never alters.
 ##Getting Started
 
 The master branch has an untested GildedRose class waiting to be refactored and updated with the new requirements!
-The impl-* branches will have my implementations for every time i practise the kata.
+The *practise_kata_n* branches will have my implementations for every time i practise the kata.
 
 ## License
 
 MIT
 
-## Suggested attribution
+## Αttribution
 
 This work is by [@TerryHughes](https://twitter.com/TerryHughes), [@NotMyself](https://twitter.com/NotMyself)
 
