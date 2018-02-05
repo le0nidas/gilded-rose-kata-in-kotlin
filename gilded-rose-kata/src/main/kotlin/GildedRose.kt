@@ -1,6 +1,6 @@
 class GildedRose(
-		val items: List<Item>) {
-
+		val items: List<Item>
+) {
 
 	fun updateQuality() {
 		for (i in 0..items.size - 1) {
