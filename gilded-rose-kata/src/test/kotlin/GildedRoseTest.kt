@@ -21,7 +21,7 @@ class GildedRoseTest {
 	}
 
 	@Test fun `a "Sulfuras, Hand of Ragnaros" does not degrade`() {
-		val items = listOf(Item("Sulfuras, Hand of Ragnaros", 10, 10))
+		val items = listOf(sulfuras(10, 10))
 
 		GildedRose(items).updateQuality()
 
@@ -29,7 +29,7 @@ class GildedRoseTest {
 	}
 
 	@Test fun `an "Aged Brie"'s quality increases by 1`() {
-		val items = listOf(Item("Aged Brie", 10, 10))
+		val items = listOf(agedBrie(10, 10))
 
 		GildedRose(items).updateQuality()
 
@@ -37,7 +37,7 @@ class GildedRoseTest {
 	}
 
 	@Test fun `the quality of an "Aged Brie" does not increase more than 50`() {
-		val items = listOf(Item("Aged Brie", 10, 50))
+		val items = listOf(agedBrie(10, 50))
 
 		GildedRose(items).updateQuality()
 
@@ -45,7 +45,7 @@ class GildedRoseTest {
 	}
 
 	@Test fun `a "Backstage pass"'s quality increases by 1`() {
-		val items = listOf(Item("Backstage passes to a TAFKAL80ETC concert", 20, 10))
+		val items = listOf(backstagePass(20, 10))
 
 		GildedRose(items).updateQuality()
 
@@ -53,7 +53,7 @@ class GildedRoseTest {
 	}
 
 	@Test fun `a "Backstage pass"'s quality increases by 2 when the sell in date is smaller to 10 days`() {
-		val items = listOf(Item("Backstage passes to a TAFKAL80ETC concert", 8, 10))
+		val items = listOf(backstagePass(8, 10))
 
 		GildedRose(items).updateQuality()
 
@@ -61,7 +61,7 @@ class GildedRoseTest {
 	}
 
 	@Test fun `a "Backstage pass"'s quality increases by 2 when the sell in date is equal to 10 days`() {
-		val items = listOf(Item("Backstage passes to a TAFKAL80ETC concert", 10, 10))
+		val items = listOf(backstagePass(10, 10))
 
 		GildedRose(items).updateQuality()
 
@@ -69,7 +69,7 @@ class GildedRoseTest {
 	}
 
 	@Test fun `a "Backstage pass"'s quality increases by 3 when the sell in date is smaller than 5 days`() {
-		val items = listOf(Item("Backstage passes to a TAFKAL80ETC concert", 3, 10))
+		val items = listOf(backstagePass(3, 10))
 
 		GildedRose(items).updateQuality()
 
@@ -77,7 +77,7 @@ class GildedRoseTest {
 	}
 
 	@Test fun `a "Backstage pass"'s quality increases by 3 when the sell in date is equal to 5 days`() {
-		val items = listOf(Item("Backstage passes to a TAFKAL80ETC concert", 5, 10))
+		val items = listOf(backstagePass(5, 10))
 
 		GildedRose(items).updateQuality()
 
@@ -85,7 +85,7 @@ class GildedRoseTest {
 	}
 
 	@Test fun `a "Backstage pass"'s quality does not increase more than 50 when there are more than 10 days left`() {
-		val items = listOf(Item("Backstage passes to a TAFKAL80ETC concert", 15, 50))
+		val items = listOf(backstagePass(15, 50))
 
 		GildedRose(items).updateQuality()
 
@@ -93,7 +93,7 @@ class GildedRoseTest {
 	}
 
 	@Test fun `a "Backstage pass"'s quality does not increase more than 50 when there are less than 10 days left`() {
-		val items = listOf(Item("Backstage passes to a TAFKAL80ETC concert", 7, 49))
+		val items = listOf(backstagePass(7, 49))
 
 		GildedRose(items).updateQuality()
 
@@ -101,7 +101,7 @@ class GildedRoseTest {
 	}
 
 	@Test fun `a "Backstage pass"'s quality does not increase more than 50 when there are less than 5 days left`() {
-		val items = listOf(Item("Backstage passes to a TAFKAL80ETC concert", 3, 48))
+		val items = listOf(backstagePass(3, 48))
 
 		GildedRose(items).updateQuality()
 
@@ -117,7 +117,7 @@ class GildedRoseTest {
 	}
 
 	@Test fun `a "Sulfuras"'s sell in day is never decreased`() {
-		val items = listOf(Item("Sulfuras, Hand of Ragnaros", 7, 10))
+		val items = listOf(sulfuras(7, 10))
 
 		GildedRose(items).updateQuality()
 
@@ -133,7 +133,7 @@ class GildedRoseTest {
 	}
 
 	@Test fun `a "Sulfuras" does not degrade even after expiration date`() {
-		val items = listOf(Item("Sulfuras, Hand of Ragnaros", -1, 10))
+		val items = listOf(sulfuras(-1, 10))
 
 		GildedRose(items).updateQuality()
 
@@ -141,7 +141,7 @@ class GildedRoseTest {
 	}
 
 	@Test fun `after expiration date a "Backstage pass"'s quality is turned to 0`() {
-		val items = listOf(Item("Backstage passes to a TAFKAL80ETC concert", -1, 10))
+		val items = listOf(backstagePass(-1, 10))
 
 		GildedRose(items).updateQuality()
 
@@ -149,7 +149,7 @@ class GildedRoseTest {
 	}
 
 	@Test fun `after expiration date an "Aged Brie"'s quality is increased twice as fast`() {
-		val items = listOf(Item("Aged Brie", -1, 10))
+		val items = listOf(agedBrie(-1, 10))
 
 		GildedRose(items).updateQuality()
 
@@ -157,7 +157,7 @@ class GildedRoseTest {
 	}
 
 	@Test fun `after expiration date an "Aged Brie"'s quality does not increase more than 50`() {
-		val items = listOf(Item("Aged Brie", -1, 49))
+		val items = listOf(agedBrie(-1, 49))
 
 		GildedRose(items).updateQuality()
 

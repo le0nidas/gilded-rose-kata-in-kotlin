@@ -1,5 +1,5 @@
 fun updateSellInDateOf(item: Item) {
-	if (item.name == "Sulfuras, Hand of Ragnaros") {
+	if (item.name == SULFURAS) {
 		return
 	}
 

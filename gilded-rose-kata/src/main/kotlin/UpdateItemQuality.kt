@@ -1,8 +1,8 @@
 fun updateQualityOf(item: Item) {
 	val value = when (item.name) {
-		"Aged Brie" -> updateValueOfAgedBrie(item)
-		"Backstage passes to a TAFKAL80ETC concert" -> updateValueOfBackstage(item)
-		"Sulfuras, Hand of Ragnaros" -> 0
+		AGED_BRIE -> updateValueOfAgedBrie(item)
+		BACKSTAGE_PASS -> updateValueOfBackstage(item)
+		SULFURAS -> 0
 		else -> updateValueOfNormal(item)
 	}
 
