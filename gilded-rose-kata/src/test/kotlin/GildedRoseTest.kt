@@ -155,4 +155,12 @@ class GildedRoseTest {
 
 		assert.that(items[0].quality, equalTo(12))
 	}
+
+	@Test fun `after expiration date an "Aged Brie"'s quality does not increase more than 50`() {
+		val items = listOf(Item("Aged Brie", -1, 49))
+
+		GildedRose(items).updateQuality()
+
+		assert.that(items[0].quality, equalTo(50))
+	}
 }
