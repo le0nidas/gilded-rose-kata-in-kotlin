@@ -84,7 +84,7 @@ class GildedRoseTest {
 		assert.that(items[0].quality, equalTo(13))
 	}
 
-	@Test fun `a "Backstage pass"'s quality does increase more than 50 when there are more than 10 days left`() {
+	@Test fun `a "Backstage pass"'s quality does not increase more than 50 when there are more than 10 days left`() {
 		val items = listOf(Item("Backstage passes to a TAFKAL80ETC concert", 15, 50))
 
 		GildedRose(items).updateQuality()
@@ -92,7 +92,7 @@ class GildedRoseTest {
 		assert.that(items[0].quality, equalTo(50))
 	}
 
-	@Test fun `a "Backstage pass"'s quality does increase more than 50 when there are less than 10 days left`() {
+	@Test fun `a "Backstage pass"'s quality does not increase more than 50 when there are less than 10 days left`() {
 		val items = listOf(Item("Backstage passes to a TAFKAL80ETC concert", 7, 49))
 
 		GildedRose(items).updateQuality()
@@ -100,7 +100,7 @@ class GildedRoseTest {
 		assert.that(items[0].quality, equalTo(50))
 	}
 
-	@Test fun `a "Backstage pass"'s quality does increase more than 50 when there are less than 5 days left`() {
+	@Test fun `a "Backstage pass"'s quality does not increase more than 50 when there are less than 5 days left`() {
 		val items = listOf(Item("Backstage passes to a TAFKAL80ETC concert", 3, 48))
 
 		GildedRose(items).updateQuality()
