@@ -3,6 +3,8 @@ fun updateQualityOf(item: Item) {
 		AGED_BRIE -> updateValueOfAgedBrie(item)
 		BACKSTAGE_PASS -> updateValueOfBackstage(item)
 		SULFURAS -> 0
+		CONJURED -> 2 * updateValueOfNormal(item)
+
 		else -> updateValueOfNormal(item)
 	}
 

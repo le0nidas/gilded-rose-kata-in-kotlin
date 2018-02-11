@@ -1,10 +1,12 @@
 const val AGED_BRIE = "Aged Brie"
 const val BACKSTAGE_PASS = "Backstage passes to a TAFKAL80ETC concert"
 const val SULFURAS = "Sulfuras, Hand of Ragnaros"
+const val CONJURED = "Conjured Mana Cake"
 
 fun agedBrie(sellIn: Int, quality: Int) = Item(AGED_BRIE, sellIn, quality)
 fun backstagePass(sellIn: Int, quality: Int) = Item(BACKSTAGE_PASS, sellIn, quality)
 fun sulfuras(sellIn: Int, quality: Int) = Item(SULFURAS, sellIn, quality)
+fun conjured(sellIn: Int, quality: Int) = Item(CONJURED, sellIn, quality)
 
 data class Item(
 		val name: String,

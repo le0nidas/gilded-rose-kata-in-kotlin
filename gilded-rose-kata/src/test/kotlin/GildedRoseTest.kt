@@ -163,4 +163,20 @@ class GildedRoseTest {
 
 		assert.that(items[0].quality, equalTo(50))
 	}
+
+	@Test fun `a Conjured item degrades twice as fast related to a normal item`() {
+		val items = listOf(conjured(4, 10))
+
+		GildedRose(items).updateQuality()
+
+		assert.that(items[0].quality, equalTo(8))
+	}
+
+	@Test fun `after expiration date a Conjured item degrades twice as fast related to a normal item`() {
+		val items = listOf(conjured(-1, 10))
+
+		GildedRose(items).updateQuality()
+
+		assert.that(items[0].quality, equalTo(6))
+	}
 }
