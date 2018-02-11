@@ -5,7 +5,8 @@ class GildedRose(
 	fun updateQuality() {
 		items.forEach { item ->
 			if (item.name == "Aged Brie"
-					|| item.name == "Backstage passes to a TAFKAL80ETC concert") {
+					|| item.name == "Backstage passes to a TAFKAL80ETC concert"
+					|| item.name == "Sulfuras, Hand of Ragnaros") {
 				updateSellInDateOf(item)
 				updateQualityOf(item)
 				return

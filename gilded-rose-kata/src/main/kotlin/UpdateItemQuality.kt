@@ -1,10 +1,10 @@
 fun updateQualityOf(item: Item) {
 	when (item.name) {
 		"Aged Brie" -> updateQualityOfAgedBrie(item)
-		else -> updateQualityOfBackstage(item)
+		"Backstage passes to a TAFKAL80ETC concert" -> updateQualityOfBackstage(item)
+		else -> updateQualityOfSulfuras(item)
 	}
 }
-
 
 private fun updateQualityOfAgedBrie(item: Item) {
 	val value = when {
@@ -26,4 +26,8 @@ private fun updateQualityOfBackstage(item: Item) {
 	}
 
 	item.quality = if (item.quality + value > 50) 50 else item.quality + value
+}
+
+private fun updateQualityOfSulfuras(item: Item) {
+
 }
